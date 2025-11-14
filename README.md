@@ -1,4 +1,8 @@
- Passo A Passo: 
+Alunos 
+    Gabriel trevisan de Lima   R.A:010624006
+    Lucas André de souza       R.A:020124026
+
+Passo A Passo: 
 
 1. Clone o repositório
         Link: https://github.com/LucasS352/laravel-vendas-carros.git
