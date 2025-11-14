@@ -32,14 +32,27 @@
                         </div>
 
                         <div class="mt-4">
-                             <label for="modelo" class="block font-medium text-sm text-gray-700 dark:text-gray-300">Modelo</label>
-                             <input id="modelo" name="modelo" type="text" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300" required>
+                            <label for="modelo" class="block font-medium text-sm text-gray-700 dark:text-gray-300">Modelo</label>
+                            <input id="modelo" name="modelo" type="text" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300" required>
                         </div>
                         
                         <div class="mt-4"><label for="cor" class="block font-medium text-sm text-gray-700 dark:text-gray-300">Cor</label><input id="cor" name="cor" type="text" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300" required></div>
-                        <div class="mt-4"><label for="ano" class="block font-medium text-sm text-gray-700 dark:text-gray-300">Ano</label><input id="ano" name="ano" type="text" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300" required></div>
-                        <div class="mt-4"><label for="quilometragem" class="block font-medium text-sm text-gray-700 dark:text-gray-300">Quilometragem</label><input id="quilometragem" name="quilometragem" type="text" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300" required></div>
-                        <div class="mt-4"><label for="valor" class="block font-medium text-sm text-gray-700 dark:text-gray-300">Valor</label><input id="valor" name="valor" type="text" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300" required></div>
+                        
+                        <div class="mt-4">
+                            <label for="ano" class="block font-medium text-sm text-gray-700 dark:text-gray-300">Ano</label>
+                            <input id="ano" name="ano" type="number" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300" required>
+                        </div>
+
+                        <div class="mt-4">
+                            <label for="quilometragem" class="block font-medium text-sm text-gray-700 dark:text-gray-300">Quilometragem</label>
+                            <input id="quilometragem" name="quilometragem" type="number" step="0.01" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300" required>
+                        </div>
+
+                        <div class="mt-4">
+                            <label for="valor" class="block font-medium text-sm text-gray-700 dark:text-gray-300">Valor (Use ponto para centavos)</label>
+                            <input id="valor" name="valor" type="number" step="0.01" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300" required>
+                        </div>
+
                         <div class="mt-4"><label for="descricao" class="block font-medium text-sm text-gray-700 dark:text-gray-300">Descrição</label><textarea id="descricao" name="descricao" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300" rows="3"></textarea></div>
                         <div class="mt-4"><label for="foto1" class="block font-medium text-sm text-gray-700 dark:text-gray-300">Foto 1 (Link URL)</label><input id="foto1" name="foto1" type="text" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300" required></div>
                         <div class="mt-4"><label for="foto2" class="block font-medium text-sm text-gray-700 dark:text-gray-300">Foto 2 (Link URL)</label><input id="foto2" name="foto2" type="text" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300" required></div>

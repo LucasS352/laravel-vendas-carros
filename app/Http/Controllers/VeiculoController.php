@@ -2,118 +2,88 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Veiculo; // <--- OBRIGATÓRIO: Importar o Model
+use App\Models\Veiculo;
 use Illuminate\Http\Request;
 
 class VeiculoController extends Controller
 {
-    /**
-     * Exibe a lista de veículos (Admin).
-     */
+    // 1. Listar
     public function index()
     {
         $veiculos = Veiculo::all();
         return view('admin.veiculos.index', ['veiculos' => $veiculos]);
     }
 
-    /**
-     * Mostra o formulário de cadastro.
-     */
+    // 2. Formulário de Criar
     public function create()
     {
         return view('admin.veiculos.create');
     }
 
-    /**
-     * Salva o novo veículo no banco.
-     */
+    // 3. Salvar (CORRIGIDO)
     public function store(Request $request)
     {
-        $request->validate([
+        // A validação agora retorna os dados limpos (sem o _token)
+        $dados = $request->validate([
             'marca' => 'required',
             'modelo' => 'required',
             'cor' => 'required',
             'ano' => 'required|integer',
-            'quilometragem' => 'required',
-            'valor' => 'required',
-            'foto1' => 'required',
-            'foto2' => 'required',
-            'foto3' => 'required',
+            'quilometragem' => 'required|numeric',
+            'valor' => 'required|numeric',
+            'foto1' => 'required|url',
+            'foto2' => 'required|url',
+            'foto3' => 'required|url',
+            // Campos opcionais precisam estar aqui para passarem no filtro
+            'descricao' => 'nullable', 
+            'foto4' => 'nullable|url',
+            'foto5' => 'nullable|url',
         ]);
 
-        // === LIMPEZA DOS VALORES (A MÁGICA ACONTECE AQUI) ===
-        
-        // 1. Pega o valor bruto (ex: "R$ 101.090,00")
-        $valorBruto = $request->input('valor');
-        // 2. Remove "R$", pontos de milhar e espaços
-        $valorLimpo = str_replace(['R$', '.', ' '], '', $valorBruto); // Fica "101090,00"
-        // 3. Troca a vírgula decimal por ponto
-        $valorFinal = str_replace(',', '.', $valorLimpo); // Fica "101090.00" (Perfeito pro banco)
+        // Agora criamos usando apenas os dados limpos
+        Veiculo::create($dados);
 
-        // Fazemos o mesmo para a quilometragem (caso tenha ponto de milhar)
-        $kmBruto = $request->input('quilometragem');
-        $kmLimpo = str_replace(['.', ' '], '', $kmBruto);
-        $kmFinal = str_replace(',', '.', $kmLimpo);
-
-        // === SALVAR NO BANCO ===
-        $veiculo = new Veiculo();
-        
-        $veiculo->marca = $request->input('marca');
-        $veiculo->modelo = $request->input('modelo');
-        $veiculo->cor = $request->input('cor');
-        $veiculo->ano = $request->input('ano');
-        
-        // Usamos os valores limpos aqui
-        $veiculo->quilometragem = $kmFinal; 
-        $veiculo->valor = $valorFinal;
-        
-        $veiculo->descricao = $request->input('descricao');
-        $veiculo->foto1 = $request->input('foto1');
-        $veiculo->foto2 = $request->input('foto2');
-        $veiculo->foto3 = $request->input('foto3');
-        $veiculo->foto4 = $request->input('foto4');
-        $veiculo->foto5 = $request->input('foto5');
-        
-        $veiculo->save();
-
-        return redirect()->route('veiculos.index');
+        return redirect()->route('veiculos.index')->with('success', 'Veículo cadastrado!');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    // 4. Formulário de Editar
+    public function edit($id)
     {
-        //
+        $veiculo = Veiculo::findOrFail($id);
+        return view('admin.veiculos.edit', ['veiculo' => $veiculo]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    // 5. Atualizar (CORRIGIDO)
+    public function update(Request $request, $id)
     {
-        //
+        // Mesma lógica: validar e pegar apenas os dados úteis
+        $dados = $request->validate([
+            'marca' => 'required',
+            'modelo' => 'required',
+            'cor' => 'required',
+            'ano' => 'required|integer',
+            'quilometragem' => 'required|numeric',
+            'valor' => 'required|numeric',
+            'foto1' => 'required|url',
+            'foto2' => 'required|url',
+            'foto3' => 'required|url',
+            'descricao' => 'nullable',
+            'foto4' => 'nullable|url',
+            'foto5' => 'nullable|url',
+        ]);
+
+        $veiculo = Veiculo::findOrFail($id);
+        
+        // Atualiza apenas com os dados validados
+        $veiculo->update($dados);
+
+        return redirect()->route('veiculos.index')->with('success', 'Veículo atualizado!');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
+    // 6. Excluir
     public function destroy($id)
     {
-        // 1. Busca o veículo pelo ID (ou dá erro se não achar)
-        $veiculo = Veiculo::findOrFail($id);
-
-        // 2. Deleta do banco de dados
-        $veiculo->delete();
-
-        // 3. Redireciona de volta para a lista
-        return redirect()->route('veiculos.index');
+        Veiculo::findOrFail($id)->delete();
+        return redirect()->route('veiculos.index')->with('success', 'Veículo excluído!');
     }
+}
