@@ -10,6 +10,11 @@
 4. Crie o arquivo .env (`cp .env.example .env`) e configure o banco.
 
 ![alt text](image-16.png)
+
+5. Abra o XAMPP, e de start no banco e no apache
+
+   <img width="664" height="397" alt="image" src="https://github.com/user-attachments/assets/3378ce89-260b-4b9f-af12-f3e0b81e305b" />
+
         
 5. Rode o comando para criar as tabelas e popular o banco com dados de teste:
 
