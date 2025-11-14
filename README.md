@@ -8,7 +8,10 @@
 3. npm install` && `npm run build`
 
 4. Crie o arquivo .env (`.env.example .env`) e configure o banco.
+
         ![alt text](image-15.png)
+
+
 5. Rode o comando para criar as tabelas e popular o banco com dados de teste:
 
   	   php artisan migrate --seed
