@@ -14,4 +14,61 @@ Acesso Administrativo
 - Senha: password
 
 
-![alt text](image.png)
+***********************************************************************************
+
+AREA ADMINISTRADOR. 
+
+Tela de registro: 
+Url: 	http://127.0.0.1:8000/register
+
+![alt text](image-2.png)
+
+Tela de Login: 
+Url: http://127.0.0.1:8000/login
+
+![alt text](image-3.png)
+
+Tela de Dashboard: 
+Url: http://127.0.0.1:8000/dashboard     (DASHBOARDFAKE) 
+
+![alt text](image-4.png)
+
+Tela Gerencia de Veiculos: 
+Url: http://127.0.0.1:8000/admin/veiculos
+
+![alt text](image-5.png)
+
+Tela Editar Veiculos:
+URL: http://127.0.0.1:8000/admin/veiculos/2/edit
+
+![alt text](image-6.png)
+
+Cadastrar Novo Veiculo:
+URL: http://127.0.0.1:8000/admin/veiculos/create
+
+![alt text](image-7.png)
+![alt text](image-8.png)
+
+
+
+AREA CLIENTE 
+
+Tela Vitrine:
+URL: http://127.0.0.1:8000/
+
+![alt text](image-9.png)
+![alt text](image-10.png)
+
+Filtros Funcionais: 
+![alt text](image-11.png)
+
+Ao clicar acima do nome do veiculo é possivel entrar na pagina detalhes: 
+
+![alt text](image-12.png)
+
+Tela Detalhes Do Veiculo 
+URL: http://127.0.0.1:8000/veiculo/1
+
+![alt text](image-13.png)
+
+![alt text](image-14.png)
