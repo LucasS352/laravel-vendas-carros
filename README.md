@@ -21,8 +21,8 @@
   	   php artisan migrate --seed
 
 
-7. Depois acesse o a URL: (http://127.0.0.1:8000/)
-8. <img width="1901" height="991" alt="image" src="https://github.com/user-attachments/assets/c49ce520-dd0d-4ff5-8617-893c358eb6e9" />
+7. Depois acesse o a URL: (http://127.0.0.1:8000/)   - Ira abrir a vitrine da loja
+ <img width="1901" height="991" alt="image" src="https://github.com/user-attachments/assets/c49ce520-dd0d-4ff5-8617-893c358eb6e9" />
 
 
 Acesso Administrativo
