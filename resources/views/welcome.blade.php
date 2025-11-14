@@ -185,7 +185,7 @@
                         @empty
                         <div class="col-12">
                             <div class="alert alert-warning text-center" role="alert">
-                              Nenhum veículo encontrado com esses filtros. Tente <a href="{{ route('home') }}" class="alert-link">limpar a busca</a>.
+                                Nenhum veículo encontrado com esses filtros. Tente <a href="{{ route('home') }}" class="alert-link">limpar a busca</a>.
                             </div>
                         </div>
                         @endforelse

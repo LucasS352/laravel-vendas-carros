@@ -9,7 +9,7 @@ class Veiculo extends Model
 {
     use HasFactory;
 
-    // Essa linha libera o salvamento automático desses campos
+    // libera o salvamento automático desses campos
     protected $fillable = [
         'marca',
         'modelo',

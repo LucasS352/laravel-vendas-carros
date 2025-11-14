@@ -9,7 +9,7 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        // Cria um usuário admin padrão (Opcional, mas bom pro professor logar fácil)
+        // usuário admin padrão 
         User::factory()->create([
             'name' => 'Administrador',
             'email' => 'admin@admin.com',

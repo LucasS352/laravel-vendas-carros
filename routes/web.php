@@ -3,55 +3,40 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VeiculoController;
 use App\Models\Veiculo;
-use Illuminate\Http\Request; // <-- Importante: Para ler os filtros
+use Illuminate\Http\Request; 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Rotas Públicas (A Vitrine)
-|--------------------------------------------------------------------------
-*/
+//Rotas Públicas (loja-vitrine)
 
-Route::get('/', function (Request $request) { // <-- Injetamos o Request
-    
+
+Route::get('/', function (Request $request) {
     // Inicia a busca (ainda não busca no banco)
     $query = Veiculo::query();
 
-    // --- LÓGICA DE FILTRO ---
-    // 1. Filtro por Busca (Marca ou Modelo)
+    
+        //Filtro por Busca (Marca ou Modelo)
     if ($request->filled('busca')) {
         $query->where(function($q) use ($request) {
             $q->where('marca', 'like', '%' . $request->busca . '%')
-              ->orWhere('modelo', 'like', '%' . $request->busca . '%');
+                ->orWhere('modelo', 'like', '%' . $request->busca . '%');
         });
     }
 
-    // 2. Filtro por Marca (Dropdown)
+    // 2. Filtro por Marca 
     if ($request->filled('marca')) {
         $query->where('marca', $request->marca);
     }
 
-    // 3. Filtro por Cor (Dropdown)
+    // 3. Filtro por Cor
     if ($request->filled('cor')) {
         $query->where('cor', $request->cor);
     }
+    
 
-    // 4. Filtro por Preço Mínimo
-    if ($request->filled('preco_min')) {
-        $query->where('valor', '>=', $request->preco_min);
-    }
-
-    // 5. Filtro por Preço Máximo
-    if ($request->filled('preco_max')) {
-        $query->where('valor', '<=', $request->preco_max);
-    }
-
-    // --- FIM DA LÓGICA ---
-
-    // Agora sim, busca os veículos filtrados
+    // busca os veículos filtrados
     $veiculos = $query->get();
 
-    // Busca dados para preencher os filtros (evita mostrar marca que não tem carro)
+    // Busca dados para preencher os filtros 
     $marcas = Veiculo::distinct()->orderBy('marca', 'asc')->pluck('marca');
     $cores = Veiculo::distinct()->orderBy('cor', 'asc')->pluck('cor');
 
@@ -72,11 +57,8 @@ Route::get('/veiculo/{id}', function ($id) {
 })->name('veiculo.detalhes');
 
 
-/*
-|--------------------------------------------------------------------------
-| Rotas do Admin (Protegidas por Login)
-|--------------------------------------------------------------------------
-*/
+// Rotas do Admin (Protegidas por Login)
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

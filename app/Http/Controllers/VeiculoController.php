@@ -20,10 +20,10 @@ class VeiculoController extends Controller
         return view('admin.veiculos.create');
     }
 
-    // 3. Salvar (CORRIGIDO)
+    // 3. Salvar 
     public function store(Request $request)
     {
-        // A validação agora retorna os dados limpos (sem o _token)
+        // A validação retorna os dados
         $dados = $request->validate([
             'marca' => 'required',
             'modelo' => 'required',
@@ -34,7 +34,7 @@ class VeiculoController extends Controller
             'foto1' => 'required|url',
             'foto2' => 'required|url',
             'foto3' => 'required|url',
-            // Campos opcionais precisam estar aqui para passarem no filtro
+            // Campos opcionais
             'descricao' => 'nullable', 
             'foto4' => 'nullable|url',
             'foto5' => 'nullable|url',
@@ -53,7 +53,7 @@ class VeiculoController extends Controller
         return view('admin.veiculos.edit', ['veiculo' => $veiculo]);
     }
 
-    // 5. Atualizar (CORRIGIDO)
+    // 5. Atualizar 
     public function update(Request $request, $id)
     {
         // Mesma lógica: validar e pegar apenas os dados úteis
