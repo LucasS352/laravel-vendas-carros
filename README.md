@@ -16,10 +16,13 @@
    <img width="664" height="397" alt="image" src="https://github.com/user-attachments/assets/3378ce89-260b-4b9f-af12-f3e0b81e305b" />
 
         
-5. Rode o comando para criar as tabelas e popular o banco com dados de teste:
+6. Rode o comando para criar as tabelas e popular o banco com dados de teste:
 
   	   php artisan migrate --seed
 
+
+7. Depois acesse o a URL: (http://127.0.0.1:8000/)
+8. <img width="1901" height="991" alt="image" src="https://github.com/user-attachments/assets/c49ce520-dd0d-4ff5-8617-893c358eb6e9" />
 
 
 Acesso Administrativo
