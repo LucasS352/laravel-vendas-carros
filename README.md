@@ -55,7 +55,8 @@ Url: http://127.0.0.1:8000/login
 Tela de Dashboard: 
 Url: http://127.0.0.1:8000/dashboard     (DASHBOARDFAKE) 
 
-![alt text](image-4.png)
+<img width="1072" height="629" alt="image" src="https://github.com/user-attachments/assets/177bc0c0-ca44-44be-bd4d-5f47c70fd23b" />
+
 
 Tela Gerencia de Veiculos: 
 Url: http://127.0.0.1:8000/admin/veiculos
