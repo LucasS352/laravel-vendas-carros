@@ -1,6 +1,7 @@
 Alunos 
-    Gabriel trevisan de Lima   R.A:010624006
-    Lucas André de souza       R.A:020124026
+Gabriel trevisan de Lima   R.A:010624006
+Lucas André de souza       R.A:020124026
+
 
 Passo A Passo: 
 
